@@ -2,7 +2,7 @@
 
 *Introdction here*
 
-This is a plugin that enables to build a theme for Foreman.
+This is a plugin that enables building a theme for Foreman.
 It knows to inject its assets before the core ones, so
 if it an asset with the same name exists both in core and
 in the plugin - plugin's one will be used.
