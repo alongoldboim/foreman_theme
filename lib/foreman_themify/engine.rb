@@ -1,6 +1,7 @@
 require 'deface'
 
 module ForemanThemify
+
   class Engine < ::Rails::Engine
     engine_name 'foreman_themify'
 
@@ -35,6 +36,11 @@ module ForemanThemify
 
         # add dashboard widget
         widget 'foreman_themify_widget', :name=>N_('Foreman plugin template widget'), :sizex => 4, :sizey =>1
+        Rails.application.assets.unregister_processor('text/css', Sprockets::DirectiveProcessor)
+        Rails.application.assets.unregister_processor('application/javascript', Sprockets::DirectiveProcessor)
+        Rails.application.assets.register_processor('text/css', ForemanThemify::OverrideAssets::DirectiveProcessor)
+        Rails.application.assets.register_processor('application/javascript', ForemanThemify::OverrideAssets::DirectiveProcessor)
+
       end
     end
 
@@ -94,4 +100,5 @@ module ForemanThemify
     end
 
   end
+
 end
