@@ -2,22 +2,12 @@
 
 *Introdction here*
 
-This is my frst attempt to create a theme for Foreman.
+This is a plugin that enables to build a theme for Foreman.
 It knows to inject its assets before the core ones, so
 if it an asset with the same name exists both in core and
 in the plugin - plugin's one will be used.
 This concept allows us to replace images, javascript files and
 css files completely.
-
-Two issues that need fixing in Foreman core:
-
-1. Documentation - it needs some changes in the core. Probably a specific helper, that could be 
-overriden in the plugin. See [eLobato's PR](https://github.com/theforeman/foreman/pull/2212), look 
-for ```documentation_button```
-
-2. Adding plugin's assets as child assets. If all a plugin wants is not a complete replacement 
-of the asset, but just adding functionality to the existing one (as in ```*= require_tree```)
-the core should create an extension point. See [stackoverflow question about it](http://stackoverflow.com/questions/8448838/how-can-i-dynamically-require-assets-in-the-rails-3-1-asset-pipeline)
 
 ## Installation
 
@@ -27,10 +17,6 @@ for how to install Foreman plugins
 ## Usage
 
 *Usage here*
-
-## TODO
-
-*Todo list here*
 
 ## Contributing
 
