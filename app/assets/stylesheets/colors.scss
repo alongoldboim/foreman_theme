@@ -1,2 +1,5 @@
-//=include_foreman stylesheets/colors.scss
-$primary_color : grey;
+//allways import the original file from the core.
+@import "/usr/share/foreman/app/assets/stylesheets/colors.scss";
+
+//add css to override,
+$primary_color: blue;

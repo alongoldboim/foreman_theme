@@ -1,2 +1,2 @@
-# Matches foreman_themify.gemspec
-_("TODO: Description of ForemanThemify.")
+# Matches foreman_theme.gemspec
+_("TODO: Description of ForemanTheme.")
