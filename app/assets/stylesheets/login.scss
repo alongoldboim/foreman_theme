@@ -1,16 +1,7 @@
 //=include_foreman stylesheets/login.scss
-
-@import "mixin";
+//write extra scss to override
 @import "colors";
 
-.login-page #brand img {
-  display: block;
-  height: 184px;
-  margin: 0;
-  max-width: 100%;
-}
 .login-page {
   background: $primary_color;
-  background-size: auto;
-  color: #fff;
 }

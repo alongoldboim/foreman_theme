@@ -99,6 +99,11 @@ module ForemanThemify
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
+    initializer 'foreman_themify.patches' do |app|
+      #in case you want to override a controller,model require it and patch it. (in the exmaple rename a compute resource name)
+      require "#{config.root}/app/models/compute_resource.rb"
+    end
+
   end
 
 end
