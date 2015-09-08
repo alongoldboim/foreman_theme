@@ -2,8 +2,8 @@
 
 This is a plugin that enables building a theme for Foreman.
 It knows to inject its assets before the core ones, so
-if it an asset with the same name exists both in core and
-in the plugin - plugin's one will be used.
+if an asset with the same name exists both in core and
+in the plugin the plugin's one will be used.
 This concept allows us to replace images, javascript files and
 css files completely.
 
@@ -19,13 +19,13 @@ If you wish to override just part of the asset you will need to include the orig
 
 #####For scss/css:
 
--On top of the new file add `@import path/*filename` to the core files is need(if installed from package the path will be /usr/share/foreman/app/assets/stylesheets).
+-At the top of the new file add `@import path/*filename` (the path is the full path to foreman, if installed from package the path will be /usr/share/foreman/app/assets/stylesheets).
 
-*Imprtant note* : add `//=include_foreman stylesheets/*filename` If the core file includes a sprockets //=require*.
+*Imprtant note* : add `//=include_foreman stylesheets/*filename` If the core file includes a sprockets //=require* (no full path needed here, just stylesheets/filename).
 
 #####For javascripts:
 
--On top of the new file add `//=include_foreman javascripts/*filename`.
+-At the top of the new file add `//=include_foreman javascripts/*filename`.
 
 #####For images:
 
