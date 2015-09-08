@@ -1,7 +1,8 @@
-//=include_foreman stylesheets/login.scss
-//write extra scss to override
-@import "colors";
+//allways import the original file from the core.
+@import "/usr/share/foreman/app/assets/stylesheets/login.scss";
 
 .login-page {
   background: $primary_color;
+  background-size: auto;
+  color: #fff;
 }

@@ -1,6 +1,6 @@
-# foreman_themify
+# foreman_theme
 #
-# This file is distributed under the same license as foreman_themify.
+# This file is distributed under the same license as foreman_theme.
 #
 #, fuzzy
 msgid ""
