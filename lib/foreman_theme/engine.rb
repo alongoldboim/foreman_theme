@@ -14,23 +14,8 @@ module ForemanTheme
       Foreman::Plugin.register :foreman_theme do
         requires_foreman '>= 1.4'
 
-        # Add permissions
-        security_block :foreman_theme do
-          permission :view_foreman_theme, {:'foreman_theme/hosts' => [:new_action] }
-        end
-
         # Add a new role called 'Discovery' if it doesn't exist
         role "ForemanTheme", [:view_foreman_theme]
-
-        #add menu entry
-        menu :top_menu, :template,
-             :url_hash => {:controller => :'foreman_theme/hosts', :action => :new_action },
-             :caption  => 'ForemanTheme',
-             :parent   => :hosts_menu,
-             :after    => :hosts
-
-        # add dashboard widget
-        widget 'foreman_theme_widget', :name=>N_('Foreman plugin template widget'), :sizex => 4, :sizey =>1
 
       end
     end
@@ -96,7 +81,6 @@ module ForemanTheme
 
       #adding the override method "include_foreman" to sprockets engine
       require "directive_processor"
-      Sprockets::DirectiveProcessor.send :include, ForemanTheme::OverrideAssets::DirectiveProcessor
       Rails.application.assets.unregister_processor('text/css', Sprockets::DirectiveProcessor)
       Rails.application.assets.unregister_processor('application/javascript', Sprockets::DirectiveProcessor)
       # registering the new engine override
