@@ -9,11 +9,21 @@ css files completely.
 
 ## Installation
 
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
+* [Install Foreman from source](http://theforeman.org/manuals/1.10/index.html#3.4InstallFromSource)
+* `cd foreman`
+* `echo "gem 'foreman_theme', :path => 'path_to/foreman_theme'" >> ./bundler.d/Gemfile.local.rb`
+* run `bundle install` (if you're on CentOS or Debian this command may need to change to `scl enable tfm 'bundle install'` or otherwise. See [the manual](http://theforeman.org/manuals/1.10/index.html#3.3.2SoftwareCollections) for more info. This appliues to any command you run related to TheForeman)
+* In case the *deface* gem is not installed yet: 
+  * run `gem install deface`
+  * run again `bundle install` within the foreman main folder
 
-*Imprtant note* : in case your foreman isn't located in /usr/share(package's installation default location) make a symbolic link
-from your foreman `ln -s *foreman_dir_location* /usr/share/foreman`
+*Important Notes*: 
+
+1. In case your foreman isn't located under /usr/share (i.e., the package's installation default location) make a symbolic link from your foreman `ln -s *foreman_dir_location* /usr/share/foreman`
+2. If you run TheForeman in production mode then, to see the changes you apply via foreman_theme effectively loaded by TheForeman, you need to manually recompile the assets by running `rake assets:precompile` and then restart your instance of TheForeman (`./script/rails s -e production`) .
+ 
+For more info see [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin).
+
 
 ## Usage
 
@@ -22,17 +32,19 @@ If you wish to override just part of the asset you will need to include the orig
 
 #####For scss/css
 
-- On top of the new file add `@import path/*filename` to the core files is need(if installed from package the path will be /usr/share/foreman/app/assets/stylesheets).
+* Create a file with the changes you want to apply to the stylesheet, under `forman_theme/app/assets/stylesheets`.
+* On top of the new file add `@import <path>/*filename` (if installed from packages, then <path> would be equal to /usr/share/foreman/app/assets/stylesheets).
 
-*Imprtant note* : add `//=include_foreman stylesheets/*filename` If the core file includes a sprockets //=require*.
+*Important note* : add `//=include_foreman stylesheets/*filename` If the core file includes a sprockets //=require*.
 
 #####For javascripts
 
-- On top of the new file add `//=include_foreman javascripts/*filename`.
+* Create a file with the changes you want to apply to the stylesheet, under `forman_theme/app/assets/javascripts`.
+* On top of the new file add `//=include_foreman javascripts/*filename`.
 
 #####For images
 
-- Add a file to the assets/images with the same name as the image you want to override.
+- Add an image file under `foreman_theme/assets/images` with the same name as the image you want to override.
 
 ## Create your own
 
